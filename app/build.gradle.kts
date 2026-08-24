@@ -17,6 +17,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField(
+            type = "String",
+            name = "API_KEY",
+            value = "\"b0a4bb14adc56b420b6fa72160fd192b\"")
     }
 
     buildTypes {
@@ -31,6 +35,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
+        buildConfig = true
         dataBinding = true
     }
 }
