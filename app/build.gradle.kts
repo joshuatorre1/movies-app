@@ -62,6 +62,10 @@ dependencies {
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
 
+    // Navigation
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)

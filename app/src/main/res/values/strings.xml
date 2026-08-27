@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MoviesApp</string>
+
+    <!--  Navigation  -->
+    <string name="navigation_movies">Movies</string>
+    <string name="navigation_people">People</string>
+    <string name="navigation_tvShows">TV</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

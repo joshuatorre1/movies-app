@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/movieFragment"
+        android:enabled="true"
+        android:icon="@drawable/navigation_movies_24"
+        android:title="@string/navigation_movies"/>
+    <item
+        android:id="@+id/peopleFragment"
+        android:enabled="true"
+        android:icon="@drawable/navigation_movies_24"
+        android:title="@string/navigation_people"/>
+    <item
+        android:id="@+id/tvShowFragment"
+        android:enabled="true"
+        android:icon="@drawable/navigation_movies_24"
+        android:title="@string/navigation_tvShows"/>
+</menu>
