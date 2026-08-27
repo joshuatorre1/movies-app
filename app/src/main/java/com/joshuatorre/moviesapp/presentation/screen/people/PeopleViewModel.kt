@@ -4,10 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.joshuatorre.moviesapp.domain.usecases.GetPeopleUseCase
+import com.joshuatorre.moviesapp.domain.usecases.UpdatePeopleUseCase
 
 class PeopleViewModel(
     private val getPeopleUseCase: GetPeopleUseCase,
-    private val updatePeopleUseCase: GetPeopleUseCase
+    private val updatePeopleUseCase: UpdatePeopleUseCase
 ) : ViewModel() {
 
     fun getPeople() = liveData {
@@ -24,7 +25,7 @@ class PeopleViewModel(
 
 class PeopleViewModelFactory(
     private val getPeopleUseCase: GetPeopleUseCase,
-    private val updatePeopleUseCase: GetPeopleUseCase
+    private val updatePeopleUseCase: UpdatePeopleUseCase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return PeopleViewModel(getPeopleUseCase, updatePeopleUseCase) as T

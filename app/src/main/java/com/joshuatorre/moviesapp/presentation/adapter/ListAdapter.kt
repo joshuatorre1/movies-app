@@ -8,6 +8,7 @@ import com.joshuatorre.moviesapp.R
 import com.joshuatorre.moviesapp.data.model.movie.Movie
 import com.joshuatorre.moviesapp.databinding.ItemListBinding
 
+/*
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     private var list: List<Movie>? = ArrayList()
@@ -45,3 +46,5 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         }
     }
 }
+
+ */

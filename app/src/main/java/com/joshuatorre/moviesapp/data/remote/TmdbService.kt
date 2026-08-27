@@ -9,21 +9,21 @@ import retrofit2.http.Query
 
 interface TmdbService {
 
-    @GET("/person/popular")
+    @GET("person/popular")
     suspend fun getPopularPeople(
         @Query(
             "api_key"
         ) apiKey: String
     ): Response<PeopleList>
 
-    @GET("/movie/popular")
+    @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query(
             "api_key"
         ) apiKey: String
     ): Response<MovieList>
 
-    @GET("/tv/popular")
+    @GET("tv/popular")
     suspend fun getPopularTvShows(
         @Query(
             "api_key"

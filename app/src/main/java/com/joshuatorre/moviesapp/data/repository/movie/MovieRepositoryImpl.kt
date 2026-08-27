@@ -29,7 +29,9 @@ class MovieRepositoryImpl(
         lateinit var movieList: List<Movie>
         try {
             val response = movieRemoteDataSource.getMovies()
+            Log.d(TAG, "Response: $response")
             val body = response.body()
+            Log.d(TAG, "Body: $body")
             if (body != null) {
                 movieList = body.movies
             }

@@ -21,6 +21,10 @@ android {
             type = "String",
             name = "API_KEY",
             value = "\"b0a4bb14adc56b420b6fa72160fd192b\"")
+        buildConfigField(
+            type = "String",
+            name = "BASE_URL",
+            value = "\"https://api.themoviedb.org/3/\"")
     }
 
     buildTypes {
