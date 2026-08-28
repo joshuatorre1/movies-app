@@ -52,7 +52,6 @@ class MovieFragment : Fragment() {
                 adapter.setData(movies = it)
             }
             binding.loadingAnimation.visibility = View.GONE
-            Log.i(TAG, it.toString())
         })
 
         // Swipe-to-refresh

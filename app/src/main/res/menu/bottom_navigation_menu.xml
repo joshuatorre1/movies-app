@@ -8,11 +8,11 @@
     <item
         android:id="@+id/peopleFragment"
         android:enabled="true"
-        android:icon="@drawable/navigation_movies_24"
+        android:icon="@drawable/navigation_people_24px"
         android:title="@string/navigation_people"/>
     <item
         android:id="@+id/tvShowFragment"
         android:enabled="true"
-        android:icon="@drawable/navigation_movies_24"
+        android:icon="@drawable/navigation_tvshows_24px"
         android:title="@string/navigation_tvShows"/>
 </menu>

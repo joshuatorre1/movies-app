@@ -19,7 +19,9 @@ class DatabaseModule {
         return Room.databaseBuilder(
             context,
             LocalDatabase::class.java,
-            "MoviesAppDb").build()
+            "MoviesAppDb")
+            .fallbackToDestructiveMigration(dropAllTables = true)
+            .build()
     }
 
     @Singleton
