@@ -1,6 +1,15 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.devtools.ksp")
+}
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
 }
 
 android {
@@ -20,7 +29,7 @@ android {
         buildConfigField(
             type = "String",
             name = "API_KEY",
-            value = "\"b0a4bb14adc56b420b6fa72160fd192b\"")
+            value = "\"${localProperties.getProperty("TMDB_API_KEY", "")}\"")
         buildConfigField(
             type = "String",
             name = "BASE_URL",
