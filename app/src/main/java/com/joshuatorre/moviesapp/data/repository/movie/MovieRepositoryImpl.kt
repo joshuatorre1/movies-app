@@ -18,6 +18,8 @@ class MovieRepositoryImpl(
         getMoviesFromCache()
 
     override suspend fun updateMovies(): List<Movie>? {
+        // TODO: Limit API call every 5 minutes,
+        // TODO: If within 5 mins, call getMovies()
         val newListOfMovies = getMoviesFromApi()
         movieLocalDataSource.clearAll()
         movieLocalDataSource.saveMoviesToDb(newListOfMovies)

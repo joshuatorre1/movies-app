@@ -54,6 +54,16 @@ class MovieFragment : Fragment() {
             binding.loadingAnimation.visibility = View.GONE
             Log.i(TAG, it.toString())
         })
+
+        // Swipe-to-refresh
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.updateMovies().observe(requireActivity(), Observer {
+                if (it.isNullOrEmpty().not()) {
+                    adapter.setData(movies = it)
+                }
+                binding.swipeRefresh.isRefreshing = false
+            })
+        }
     }
 
     private fun initRecyclerView() {
@@ -61,4 +71,5 @@ class MovieFragment : Fragment() {
         binding.rvMovies.layoutManager = LinearLayoutManager(requireActivity())
         binding.rvMovies.adapter = adapter
     }
+
 }
