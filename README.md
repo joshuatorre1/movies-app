@@ -68,8 +68,6 @@ Data is fetched from the API, cached locally, and subsequent reads are served fr
   <img src="screenshots/Screenshot_20260828-201855_MoviesApp.png" width="250" alt="TV Shows screen" />
 </p>
 
-*Screenshots coming soon.*
-
 ---
 
 ## 🚀 Getting Started
@@ -83,7 +81,7 @@ Data is fetched from the API, cached locally, and subsequent reads are served fr
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/joshuatorre/moviesapp.git
+   git clone https://github.com/joshuatorre/movies-app.git
    ```
 
 2. Add your TMDB API key to your local `local.properties` file (this file is git-ignored and never committed):
