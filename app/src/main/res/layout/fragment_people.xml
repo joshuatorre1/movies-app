@@ -16,6 +16,8 @@
                 android:id="@+id/rvPeople"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="36dp"
+                android:clipToPadding="false"
                 tools:listitem="@layout/item_list" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

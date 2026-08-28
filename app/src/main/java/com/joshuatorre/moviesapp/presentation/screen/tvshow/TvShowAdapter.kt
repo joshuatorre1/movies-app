@@ -1,4 +1,4 @@
-package com.joshuatorre.moviesapp.presentation.screen.movie
+package com.joshuatorre.moviesapp.presentation.screen.tvshow
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,24 +8,24 @@ import coil3.load
 import coil3.request.transformations
 import coil3.transform.RoundedCornersTransformation
 import com.joshuatorre.moviesapp.R
-import com.joshuatorre.moviesapp.data.model.movie.Movie
+import com.joshuatorre.moviesapp.data.model.tvshow.TvShow
 import com.joshuatorre.moviesapp.databinding.ItemListBinding
 import java.util.Locale
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 
-    private var list = ArrayList<Movie>()
+    private var list = ArrayList<TvShow>()
 
-    fun setData(movies: List<Movie>) {
+    fun setData(tvShows: List<TvShow>) {
         list.clear()
-        list.addAll(movies)
+        list.addAll(tvShows)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MovieViewHolder {
+    ): TvShowViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding: ItemListBinding = DataBindingUtil.inflate(
             layoutInflater,
@@ -33,11 +33,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             parent,
             false
         )
-        return MovieViewHolder(binding)
+        return TvShowViewHolder(binding)
     }
 
     override fun onBindViewHolder(
-        holder: MovieViewHolder,
+        holder: TvShowViewHolder,
         position: Int
     ) {
         holder.bind(list[position])
@@ -45,16 +45,16 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
-    class MovieViewHolder(
+    class TvShowViewHolder(
         private val binding: ItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: Movie) {
-            binding.ivPoster.load("https://image.tmdb.org/t/p/w500" + movie.posterPath) {
+        fun bind(tvShow: TvShow) {
+            binding.ivPoster.load("https://image.tmdb.org/t/p/w500" + tvShow.posterPath) {
                 transformations(RoundedCornersTransformation(radius = 12f))
             }
-            binding.tvTitle.text = movie.title
-            binding.tvRating.text = String.format(Locale.US, "%.1f", movie.voteAverage)
-            binding.tvOverview.text = movie.overview
+            binding.tvTitle.text = tvShow.name
+            binding.tvRating.text = String.format(Locale.US, "%.1f", tvShow.voteAverage)
+            binding.tvOverview.text = tvShow.overview
         }
     }
 }

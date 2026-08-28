@@ -47,7 +47,7 @@ class MovieFragment : Fragment() {
             v.updatePadding(top = systemBars.top)
             insets
         }
-        ViewCompat.setOnApplyWindowInsetsListener(binding.swipeRefresh) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.swipeRefresh) { _, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             val displayCutout = insets.getInsets(WindowInsetsCompat.Type.displayCutout())
             val topInset = maxOf(systemBars.top, displayCutout.top)
