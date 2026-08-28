@@ -1,10 +1,12 @@
 package com.joshuatorre.moviesapp.presentation.screen.movie
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -40,6 +42,23 @@ class MovieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie, container, false)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.rvMovies) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(top = systemBars.top)
+            insets
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.swipeRefresh) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val displayCutout = insets.getInsets(WindowInsetsCompat.Type.displayCutout())
+            val topInset = maxOf(systemBars.top, displayCutout.top)
+
+            binding.swipeRefresh.setProgressViewOffset(
+                false,
+                0,
+                topInset + resources.getDimensionPixelSize(R.dimen.swipe_refresh_spinner_size)
+            )
+            insets
+        }
         return binding.root
     }
 
