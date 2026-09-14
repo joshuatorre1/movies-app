@@ -54,14 +54,18 @@ android {
 }
 
 dependencies {
+
+    // AndroidX
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.junit.ktx)
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.core.testing)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     // Coil
     implementation(libs.coil)
@@ -70,10 +74,19 @@ dependencies {
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 
     // Dagger2
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
+
+    // JUnit
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit)
+
+    // Material
+    implementation(libs.material)
 
     // Navigation
     implementation(libs.androidx.navigation.fragment)
@@ -84,6 +97,9 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
+    // Roboelectric
+    testImplementation(libs.robolectric)
+
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
@@ -91,6 +107,10 @@ dependencies {
 
     // Swipe-to-refresh
     implementation(libs.androidx.swiperefreshlayout)
+
+    // Truth
+    testImplementation(libs.truth)
+    androidTestImplementation(libs.truth)
 
     // ViewModel and LiveData
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
