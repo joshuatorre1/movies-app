@@ -17,12 +17,13 @@ import com.joshuatorre.moviesapp.domain.repository.PeopleRepository
 import com.joshuatorre.moviesapp.domain.repository.TvShowRepository
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
+@InstallIn(SingletonComponent::class)
 class RepositoryModule {
 
-    @Singleton
     @Provides
     fun provideMovieRepository(
         movieRemoteDataSource: MovieRemoteDataSource,
@@ -36,7 +37,6 @@ class RepositoryModule {
         )
     }
 
-    @Singleton
     @Provides
     fun providePeopleRepository(
         peopleRemoteDataSource: PeopleRemoteDataSource,
@@ -50,7 +50,6 @@ class RepositoryModule {
         )
     }
 
-    @Singleton
     @Provides
     fun provideTvShowRepository(
         tvShowRemoteDataSource: TvShowRemoteDataSource,

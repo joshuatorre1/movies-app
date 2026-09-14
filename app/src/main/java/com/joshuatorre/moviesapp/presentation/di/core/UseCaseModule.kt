@@ -11,8 +11,11 @@ import com.joshuatorre.moviesapp.domain.usecases.UpdatePeopleUseCase
 import com.joshuatorre.moviesapp.domain.usecases.UpdateTvShowsUseCase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
+@InstallIn(SingletonComponent::class)
 class UseCaseModule {
 
     @Provides

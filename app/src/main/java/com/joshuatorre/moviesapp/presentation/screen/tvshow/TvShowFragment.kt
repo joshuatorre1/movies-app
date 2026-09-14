@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joshuatorre.moviesapp.R
 import com.joshuatorre.moviesapp.databinding.FragmentTvShowBinding
-import com.joshuatorre.moviesapp.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class TvShowFragment : Fragment() {
 
     private lateinit var binding: FragmentTvShowBinding
@@ -27,7 +28,6 @@ class TvShowFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity().application as Injector).createTvShowSubComponent().inject(this)
         viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class]
     }
 

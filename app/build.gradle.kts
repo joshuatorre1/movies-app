@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 val localProperties = Properties()
@@ -77,9 +78,9 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.kotlinx.coroutines.test)
 
-    // Dagger2
-    implementation(libs.dagger)
-    ksp(libs.dagger.compiler)
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 
     // JUnit
     testImplementation(libs.junit)

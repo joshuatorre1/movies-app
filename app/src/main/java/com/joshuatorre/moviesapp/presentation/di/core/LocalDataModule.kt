@@ -11,24 +11,23 @@ import com.joshuatorre.moviesapp.data.repository.tvshow.TvShowLocalDataSource
 import com.joshuatorre.moviesapp.data.repository.tvshow.TvShowLocalDataSourceImpl
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
+@InstallIn(SingletonComponent::class)
 class LocalDataModule {
 
-    @Singleton
     @Provides
     fun provideMovieLocalDataSource(movieDao: MovieDao): MovieLocalDataSource {
         return MovieLocalDataSourceImpl(movieDao)
     }
 
-    @Singleton
     @Provides
     fun providePeopleLocalDataSource(peopleDao: PeopleDao): PeopleLocalDataSource {
         return PeopleLocalDataSourceImpl(peopleDao)
     }
 
-    @Singleton
     @Provides
     fun provideTvShowLocalDataSource(tvShowDao: TvShowDao): TvShowLocalDataSource {
         return TvShowLocalDataSourceImpl(tvShowDao)

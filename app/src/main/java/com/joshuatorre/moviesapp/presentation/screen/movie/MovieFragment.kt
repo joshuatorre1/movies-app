@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joshuatorre.moviesapp.R
 import com.joshuatorre.moviesapp.databinding.FragmentMovieBinding
-import com.joshuatorre.moviesapp.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MovieFragment : Fragment() {
 
     private lateinit var binding: FragmentMovieBinding
@@ -27,13 +28,8 @@ class MovieFragment : Fragment() {
     lateinit var factory: MovieViewModelFactory
     private lateinit var viewModel: MovieViewModel
 
-    companion object {
-        private val TAG = MovieFragment::class.simpleName
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity().application as Injector).createMovieSubComponent().inject(this)
         viewModel = ViewModelProvider(this, factory)[MovieViewModel::class]
     }
 

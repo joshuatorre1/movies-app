@@ -8,24 +8,23 @@ import com.joshuatorre.moviesapp.data.repository.tvshow.TvShowCacheDataSource
 import com.joshuatorre.moviesapp.data.repository.tvshow.TvShowCacheDataSourceImpl
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
+@InstallIn(SingletonComponent::class)
 class CacheDataModule {
 
-    @Singleton
     @Provides
     fun provideMovieCacheDataSource(): MovieCacheDataSource {
         return MovieCacheDataSourceImpl()
     }
 
-    @Singleton
     @Provides
     fun providePeopleCacheDataSource(): PeopleCacheDataSource {
         return PeopleCacheDataSourceImpl()
     }
 
-    @Singleton
     @Provides
     fun provideTvShowCacheDataSource(): TvShowCacheDataSource {
         return TvShowCacheDataSourceImpl()

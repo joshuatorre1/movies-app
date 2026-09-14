@@ -5,12 +5,15 @@ import com.joshuatorre.moviesapp.domain.usecases.UpdatePeopleUseCase
 import com.joshuatorre.moviesapp.presentation.screen.people.PeopleViewModelFactory
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.scopes.FragmentScoped
 
 @Module
+@InstallIn(FragmentComponent::class)
 class PeopleModule {
 
-    @PeopleScope
+    @FragmentScoped
     @Provides
     fun providePeopleViewModelFactory(
         getPeopleUseCase: GetPeopleUseCase,

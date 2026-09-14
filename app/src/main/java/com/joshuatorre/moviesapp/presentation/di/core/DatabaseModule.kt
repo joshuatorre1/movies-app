@@ -1,6 +1,6 @@
 package com.joshuatorre.moviesapp.presentation.di.core
 
-import android.content.Context
+import android.app.Application
 import androidx.room.Room
 import com.joshuatorre.moviesapp.data.local.LocalDatabase
 import com.joshuatorre.moviesapp.data.local.dao.movie.MovieDao
@@ -8,35 +8,33 @@ import com.joshuatorre.moviesapp.data.local.dao.people.PeopleDao
 import com.joshuatorre.moviesapp.data.local.dao.tvshow.TvShowDao
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
+@InstallIn(SingletonComponent::class)
 class DatabaseModule {
 
-    @Singleton
     @Provides
-    fun provideMovieDatabase(context: Context): LocalDatabase {
+    fun provideMovieDatabase(app: Application): LocalDatabase {
         return Room.databaseBuilder(
-            context,
+            app,
             LocalDatabase::class.java,
             "MoviesAppDb")
             .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
     }
 
-    @Singleton
     @Provides
     fun provideMovieDao(localDatabase: LocalDatabase): MovieDao {
         return localDatabase.movieDao()
     }
 
-    @Singleton
     @Provides
     fun providePeopleDao(localDatabase: LocalDatabase): PeopleDao {
         return localDatabase.peopleDao()
     }
 
-    @Singleton
     @Provides
     fun provideTvShowDao(localDatabase: LocalDatabase): TvShowDao {
         return localDatabase.tvShowDao()

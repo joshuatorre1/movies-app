@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joshuatorre.moviesapp.R
 import com.joshuatorre.moviesapp.databinding.FragmentPeopleBinding
-import com.joshuatorre.moviesapp.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class PeopleFragment : Fragment() {
 
     private lateinit var binding: FragmentPeopleBinding
@@ -27,7 +28,6 @@ class PeopleFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity().application as Injector).createPeopleSubComponent().inject(this)
         viewModel = ViewModelProvider(this, factory)[PeopleViewModel::class]
     }
 

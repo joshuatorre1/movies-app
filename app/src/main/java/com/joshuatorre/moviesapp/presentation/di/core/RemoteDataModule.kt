@@ -1,5 +1,6 @@
 package com.joshuatorre.moviesapp.presentation.di.core
 
+import com.joshuatorre.moviesapp.BuildConfig
 import com.joshuatorre.moviesapp.data.remote.TmdbService
 import com.joshuatorre.moviesapp.data.repository.movie.MovieRemoteDataSource
 import com.joshuatorre.moviesapp.data.repository.movie.MovieRemoteDataSourceImpl
@@ -9,27 +10,26 @@ import com.joshuatorre.moviesapp.data.repository.tvshow.TvShowRemoteDataSource
 import com.joshuatorre.moviesapp.data.repository.tvshow.TvShowRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
-class RemoteDataModule(private val apiKey: String) {
+@InstallIn(SingletonComponent::class)
+class RemoteDataModule {
 
-    @Singleton
     @Provides
     fun provideMovieRemoteDataSource(tmdbService: TmdbService): MovieRemoteDataSource {
-        return MovieRemoteDataSourceImpl(apiKey, tmdbService)
+        return MovieRemoteDataSourceImpl(BuildConfig.API_KEY, tmdbService)
     }
 
-    @Singleton
     @Provides
     fun providePeopleRemoteDataSource(tmdbService: TmdbService): PeopleRemoteDataSource {
-        return PeopleRemoteDataSourceImpl(apiKey, tmdbService)
+        return PeopleRemoteDataSourceImpl(BuildConfig.API_KEY, tmdbService)
     }
 
-    @Singleton
     @Provides
     fun provideTvShowRemoteDataSource(tmdbService: TmdbService): TvShowRemoteDataSource {
-        return TvShowRemoteDataSourceImpl(apiKey, tmdbService)
+        return TvShowRemoteDataSourceImpl(BuildConfig.API_KEY, tmdbService)
     }
 
 }
